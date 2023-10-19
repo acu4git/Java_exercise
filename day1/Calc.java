@@ -2,7 +2,7 @@
  * TA：瀬戸村
  */
 
-package ex012;
+package day1;
 
 import java.util.Arrays;
 

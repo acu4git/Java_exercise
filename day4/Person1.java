@@ -76,9 +76,9 @@ public class Person1 {
 
         System.out.println("My name is " + p3.getName() + ".");
 
-        System.out.println("My father's name is " + (p3.getFather()).getName() + ".");
+        System.out.println("My father's name is " + p3.getFather().getName() + ".");
 
-        System.out.println("My mother's name is " + (p3.getMother()).getName() + ".");
+        System.out.println("My mother's name is " + p3.getMother().getName() + ".");
 
     }
 

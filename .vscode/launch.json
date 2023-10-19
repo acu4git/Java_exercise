@@ -1,0 +1,75 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "TryOverload",
+            "request": "launch",
+            "mainClass": "day4.TryOverload",
+            "projectName": "Java_exercise_351755e6"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Shape",
+            "request": "launch",
+            "mainClass": "Shape",
+            "projectName": "Java_exercise_351755e6"
+        },
+        {
+            "type": "java",
+            "name": "Calc",
+            "request": "launch",
+            "mainClass": "day1.Calc",
+            "projectName": "Java_exercise_351755e6"
+        },
+        {
+            "type": "java",
+            "name": "Hello",
+            "request": "launch",
+            "mainClass": "day1.Hello",
+            "projectName": "Java_exercise_351755e6"
+        },
+        {
+            "type": "java",
+            "name": "FactorialTest",
+            "request": "launch",
+            "mainClass": "day2.FactorialTest",
+            "projectName": "Java_exercise_351755e6"
+        },
+        {
+            "type": "java",
+            "name": "PersonTest",
+            "request": "launch",
+            "mainClass": "day2.PersonTest",
+            "projectName": "Java_exercise_351755e6"
+        },
+        {
+            "args": [
+                "ABC",
+                "10",
+                "12.5"
+            ],
+            "type": "java",
+            "name": "Args",
+            "request": "launch",
+            "mainClass": "day4.Args",
+            "projectName": "Java_exercise_351755e6"
+        },
+        {
+            "type": "java",
+            "name": "Person1",
+            "request": "launch",
+            "mainClass": "day4.Person1",
+            "projectName": "Java_exercise_351755e6"
+        }
+    ]
+}
