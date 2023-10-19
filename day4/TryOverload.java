@@ -1,7 +1,5 @@
 package day4;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
-
 public class TryOverload {
     private int valInt;
     private String valStr;
@@ -11,20 +9,20 @@ public class TryOverload {
         this.valInt = val;
     }
 
-    public int getValueInt() {
-        return this.valInt;
-    }
-
     public void setValue(String val) {
         this.valStr = val;
     }
 
-    public String getValueStr() {
-        return this.valStr;
-    }
-
     public void setValue(double val) {
         this.valDouble = val;
+    }
+
+    public int getValueInt() {
+        return this.valInt;
+    }
+
+    public String getValueStr() {
+        return this.valStr;
     }
 
     public double getValueDouble() {
@@ -36,12 +34,14 @@ public class TryOverload {
     }
 
     public void times(String str, int num) {
+        System.out.println("(String:\"" + str + "\", int:" + num + ")");
         for (int i = 0; i < num; i++) {
             System.out.println((i + 1) + "回目: " + str);
         }
     }
 
     public void times(int num, String str) {
+        System.out.println("(int:" + num + ", String:\"" + str + "\")");
         for (int i = 0; i < num; i++) {
             System.out.println((i + 1) + "回目: " + str);
         }

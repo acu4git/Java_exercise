@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Bird",
+            "request": "launch",
+            "mainClass": "day4.Bird",
+            "projectName": "Java_exercise_351755e6"
+        },
+        {
+            "type": "java",
             "name": "TryOverload",
             "request": "launch",
             "mainClass": "day4.TryOverload",
