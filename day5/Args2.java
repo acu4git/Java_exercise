@@ -12,7 +12,7 @@ public class Args2 {
 
         for (int i = 0; i < args.length; i++) {
             // 各桁が数値のみかどうかを正規表現で判定
-            boolean isOnlyDigit = args[i].matches("[0-9]+");
+            boolean isOnlyDigit = args[i].matches("(-)*[0-9]+");
             if (isOnlyDigit) {
                 if (args[i].length() > 1 && args[i].substring(0, 1).equals("0")) {
                     valStr = args[i];
