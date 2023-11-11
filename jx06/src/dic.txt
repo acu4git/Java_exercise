@@ -1,0 +1,14 @@
+apple
+りんご
+banana
+ばなな
+sushi
+すし
+cookie
+クッキー
+rice
+お米
+chocolate
+チョコレート
+cake
+ケーキ
