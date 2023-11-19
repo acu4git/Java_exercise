@@ -5,6 +5,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "Edic",
+      "request": "launch",
+      "mainClass": "Edic",
+      "projectName": "Java_exercise_cead1a1e"
+    },
+    {
       "args": [
         "ABC",
         "10",
