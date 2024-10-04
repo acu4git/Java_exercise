@@ -1,0 +1,26 @@
+apple りんご
+banana バナナ
+dummy
+candy あめ
+donuts ドーナツ
+dummy
+egg たまご
+fish さかな
+gum ガム
+honey はちみつ
+ice こおり
+juice ジュース
+dummy
+kiwi キウイ
+lemon レモン
+melon メロン
+noodle めん
+orange みかん
+pie パイ
+quiche キッシュ
+rice こめ
+salmon さけ
+tomato トマト
+urchin ハリネズミ
+vanilla バニラ
+watermelon すいか
