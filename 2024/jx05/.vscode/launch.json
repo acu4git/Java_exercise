@@ -1,0 +1,25 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Persist",
+      "request": "launch",
+      "mainClass": "Persist",
+      "projectName": "jx05_3434d72d"
+    },
+    {
+      "type": "java",
+      "name": "Args2",
+      "request": "launch",
+      "mainClass": "Args2",
+      "args": "${input:inputString}"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "inputString",
+      "type": "promptString",
+      "description": "引数とする文字列を入力"
+    }
+  ]
+}

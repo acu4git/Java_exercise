@@ -1,0 +1,41 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Bird",
+      "request": "launch",
+      "mainClass": "Bird",
+      "projectName": "jx04_3434d72c"
+    },
+    {
+      "type": "java",
+      "name": "TryOverload",
+      "request": "launch",
+      "mainClass": "TryOverload",
+      "projectName": "jx04_3434d72c"
+    },
+    {
+      "type": "java",
+      "name": "Args",
+      "request": "launch",
+      "mainClass": "Args",
+      "projectName": "jx04_3434d72c",
+      "args": "${input:inputString}"
+    },
+    {
+      "type": "java",
+      "name": "second",
+      "request": "launch",
+      "mainClass": "",
+      "projectName": "x04_3434d72c",
+      "args": "${input:inputString"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "inputString",
+      "type": "promptString",
+      "description": "引数とする文字列を入力"
+    }
+  ]
+}
