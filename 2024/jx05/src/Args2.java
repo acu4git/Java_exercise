@@ -1,28 +1,30 @@
+import java.util.ArrayList;
+
 public class Args2 {
   public static void main(String[] args) {
-    String valStr;
-    int valInt;
-    double valDouble;
+    ArrayList<Object> valList = new ArrayList<>();
 
-    if (args.length != 3) {
-      System.err.println("Invalid args");
-      System.exit(1);
+    for (int i = 1; i < args.length; i++) {
+      Object valObj = null;
+      try {
+        valObj = Integer.parseInt(args[i]);
+        System.out.println(args[i] + " is a integer.");
+      } catch (NumberFormatException e1) {
+        try {
+          valObj = Double.parseDouble(args[i]);
+          System.out.println(args[i] + " is a double.");
+        } catch (NumberFormatException e2) {
+          valObj = args[i];
+          System.out.println(args[i] + " is a string.");
+        }
+      } finally {
+        valList.add(valObj);
+      }
     }
 
-    try {
-      valStr = args[0];
-      valInt = Integer.parseInt(args[1]);
-      valDouble = Double.parseDouble(args[2]);
-
-      for (int i = 0; i < args.length; i++) {
-        System.out.println("args[" + i + "] = " + args[i]);
-      }
-      System.out.println();
-      System.out.println("valStr = " + valStr);
-      System.out.println("valInt = " + valInt);
-      System.out.println("valDouble = " + valDouble);
-    } catch (NumberFormatException e) {
-      System.out.println("Error: failed to parse string");
+    for (int i = 0; i < valList.size(); i++) {
+      System.out
+          .println("args[" + (i + 1) + "] = " + valList.get(i) + "(type " + valList.get(i).getClass().getName() + ")");
     }
   }
 }
