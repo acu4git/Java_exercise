@@ -53,7 +53,7 @@ public class MyPaineter extends JPanel implements ActionListener, MouseListener 
     f.setSize(500, 600);
     f.setTitle("MyPainter");
 
-    MyPaineterMock mp = new MyPaineterMock();
+    MyPaineter mp = new MyPaineter();
     Container c = f.getContentPane();
     c.add(mp);
     f.setVisible(true);
