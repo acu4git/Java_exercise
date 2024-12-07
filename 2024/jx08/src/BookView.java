@@ -7,13 +7,25 @@ import javax.swing.*;
 public class BookView extends JFrame implements ActionListener {
   private BookCtrl ctrl;
   private Container c;
-  private JPanel panelRegister, panelDisplay, panelSearch;
-  private JTextField tfBookName, tfAuthor, tfPublisher, tfISBN;
-  private JButton btnRegister, btnDisplay, btnSearch;
+  private JPanel panelRegister, panelList, panelSearch;
+  private JTabbedPane tabbedPane;
+  // 一覧用
+  // 登録用
+  private JLabel lTitle, lAuthor, lPublisher, lISBN;
+  private JTextField tfTitle, tfAuthor, tfPublisher, tfISBN;
+  private JButton btnRegister;
+  // 検索用
+  private JTextField tfSearch;
+  private JButton btnSearch;
+  private JTable tableSearch;
 
   private JTable table;
   private String[] columns = { "書名", "著者名", "出版社", "ISBN" };
-  private ArrayList<Book> bookList;
+
+  public static void main(String[] args) {
+    BookView bv = new BookView();
+    bv.setVisible(true);
+  }
 
   public BookView() {
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -21,48 +33,54 @@ public class BookView extends JFrame implements ActionListener {
     setTitle("BookApp");
 
     c = getContentPane();
-    c.setLayout(new FlowLayout(FlowLayout.CENTER));
 
     ctrl = new BookCtrl();
 
     // 一覧画面
-    panelDisplay = new JPanel();
-
-    // 登録画面
-    panelRegister = new JPanel();
-
+    panelList = new JPanel();
     // 検索画面
     panelSearch = new JPanel();
-
-    // 画面遷移ボタン
-    btnDisplay = new JButton("書籍一覧");
-    btnRegister = new JButton("書籍登録");
-    btnSearch = new JButton("書籍検索");
-
-    // イベントリスナの追加
-    JButton[] btnList = { btnRegister, btnDisplay, btnSearch };
-    for (JButton btn : btnList) {
-      btn.addActionListener(this);
-    }
+    // 登録画面の初期化
+    initPanelRegister();
 
     // テーブルの初期化
-    bookList = new ArrayList<>();
     table = new JTable();
+
+    // タブ遷移
+    tabbedPane = new JTabbedPane();
+    tabbedPane.addTab("一覧", panelList);
+    tabbedPane.addTab("検索", panelSearch);
+    tabbedPane.addTab("登録", panelRegister);
+
+    c.add(tabbedPane, BorderLayout.CENTER);
+  }
+
+  private void initPanelRegister() {
+    panelRegister = new JPanel();
+    panelRegister.setLayout(new FlowLayout(FlowLayout.LEADING));
+    JLabel[] labels = { lTitle, lAuthor, lPublisher, lISBN };
+    JTextField[] textFields = { tfTitle, tfAuthor, tfPublisher, tfISBN };
+    for (int i = 0; i < 4; i++) {
+      JPanel p = new JPanel();
+      p.setLayout(new FlowLayout(FlowLayout.CENTER));
+      labels[i] = new JLabel(columns[i]);
+      textFields[i] = new JTextField(16);
+      p.add(labels[i]);
+      p.add(textFields[i]);
+      panelRegister.add(p);
+    }
+    btnRegister = new JButton("登録");
+    panelRegister.add(Box.createRigidArea(new Dimension(0, 0)));
+    panelRegister.add(btnRegister);
   }
 
   public void actionPerformed(ActionEvent e) {
     Object action = e.getSource();
     if (action == btnRegister) {
-      Book book = new Book(tfBookName.getText(), tfAuthor.getText(), tfPublisher.getText(), tfISBN.getText());
+      Book book = new Book(tfTitle.getText(), tfAuthor.getText(), tfPublisher.getText(), tfISBN.getText());
       ctrl.register(book);
     } else if (action == btnSearch) {
 
     }
-  }
-
-  public static void main(String[] args) {
-    BookView bv = new BookView();
-
-    bv.setVisible(true);
   }
 }
