@@ -1,0 +1,25 @@
+(1)
+SELECT *FROM Stock;
+
+(2)
+SELECT gno, gname
+FROM Goods
+WHERE price BETWEEN 100 AND 300;
+
+(3)
+SELECT gno, gname, price, color
+FROM Goods
+WHERE gname = 'eraser';
+
+(4)
+SELECT gno, gname, price
+FROM Goods
+ORDER BY price DESC;
+
+(5)
+SELECT Goods.gno AS goods_no, Stock.gno AS stock_goods_no, Stock.sno AS stock_no, Goods.gname AS goods_name, Supplier.sname AS supplier_name, Stock.qty AS qty
+FROM Goods
+INNER JOIN Stock
+  ON  Goods.gno = Stock.gno
+INNER JOIN Supplier
+  ON  Stock.sno = Supplier.sno;
