@@ -3,13 +3,16 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
-public class BookView extends JFrame implements ActionListener {
+public class BookView extends JFrame implements ActionListener, ChangeListener {
   private BookCtrl ctrl;
   private Container c;
   private JPanel panelRegister, panelList, panelSearch;
   private JTabbedPane tabbedPane;
   // 一覧用
+  ArrayList<Book> bookListAll;
   // 登録用
   private JLabel lTitle, lAuthor, lPublisher, lISBN;
   private JTextField tfTitle, tfAuthor, tfPublisher, tfISBN;
@@ -51,13 +54,18 @@ public class BookView extends JFrame implements ActionListener {
     tabbedPane.addTab("一覧", panelList);
     tabbedPane.addTab("検索", panelSearch);
     tabbedPane.addTab("登録", panelRegister);
+    tabbedPane.addChangeListener(this);
 
     c.add(tabbedPane, BorderLayout.CENTER);
   }
 
+  private void initPanelList() {
+    panelList = new JPanel();
+  }
+
   private void initPanelRegister() {
     panelRegister = new JPanel();
-    panelRegister.setLayout(new FlowLayout(FlowLayout.LEADING));
+    panelRegister.setLayout(new FlowLayout(FlowLayout.CENTER));
     JLabel[] labels = { lTitle, lAuthor, lPublisher, lISBN };
     JTextField[] textFields = { tfTitle, tfAuthor, tfPublisher, tfISBN };
     for (int i = 0; i < 4; i++) {
@@ -70,7 +78,7 @@ public class BookView extends JFrame implements ActionListener {
       panelRegister.add(p);
     }
     btnRegister = new JButton("登録");
-    panelRegister.add(Box.createRigidArea(new Dimension(0, 0)));
+    btnRegister.addActionListener(this);
     panelRegister.add(btnRegister);
   }
 
@@ -81,6 +89,18 @@ public class BookView extends JFrame implements ActionListener {
       ctrl.register(book);
     } else if (action == btnSearch) {
 
+    }
+  }
+
+  public void stateChanged(ChangeEvent e) {
+    int id = tabbedPane.getSelectedIndex();
+    if (id == 0) {
+      panelList.removeAll();
+      var list = ctrl.list();
+      for (Book b : list) {
+        JLabel l;
+        l.setText();
+      }
     }
   }
 }
