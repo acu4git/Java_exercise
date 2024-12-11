@@ -16,8 +16,26 @@ public class BookCtrl {
   public boolean register(Book book) {
     if (!book.validate())
       return false;
+    if (isDupulicated(book))
+      return false;
     model.write(book);
     return true;
+  }
+
+  private boolean isDupulicated(Book book) {
+    var bookList = list();
+    for (Book b : bookList) {
+      if (b.getTitle().equals(book.getTitle()))
+        return true;
+      if (b.getAuthor().equals(book.getAuthor()))
+        return true;
+      if (b.getPublisher().equals(book.getPublisher()))
+        return true;
+      if (b.getISBN().equals(book.getISBN()))
+        return true;
+    }
+
+    return false;
   }
 
   public List<Book> search(String text) {
