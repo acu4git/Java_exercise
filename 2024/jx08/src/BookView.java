@@ -55,6 +55,7 @@ public class BookView extends JFrame implements ActionListener, ChangeListener {
 
   private void initPanelList() {
     panelList = new JPanel();
+    panelList.setLayout(new BoxLayout(panelList, BoxLayout.Y_AXIS));
     // 検索部
     panelSearch = new JPanel();
     tfSearch = new JTextField(16);
