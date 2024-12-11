@@ -146,7 +146,7 @@ public class BookView extends JFrame implements ActionListener, ChangeListener {
     if (action == btnRegister) {
       Book book = new Book(tfTitle.getText(), tfAuthor.getText(), tfPublisher.getText(), tfISBN.getText());
       var ok = ctrl.register(book);
-      lStatus.setText(ok ? "登録しました" : "全ての項目を入力してください");
+      lStatus.setText(ok ? "登録しました" : "不適切な入力です");
     } else if (action == btnReset) {
       tfTitle.setText("");
       tfAuthor.setText("");
@@ -165,6 +165,7 @@ public class BookView extends JFrame implements ActionListener, ChangeListener {
   public void stateChanged(ChangeEvent e) {
     int id = tabbedPane.getSelectedIndex();
     if (id == 0) {
+      tfSearch.setText("");
       tableModel1.setRowCount(0);
       var bookList = ctrl.list();
       for (Book book : bookList) {
