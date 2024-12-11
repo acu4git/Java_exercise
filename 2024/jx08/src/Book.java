@@ -12,26 +12,26 @@ public class Book {
   }
 
   public boolean validate() {
-    if (this.title == "")
+    if (title.isEmpty())
       return false;
-    if (this.author == "")
+    if (author.isEmpty())
       return false;
-    if (this.publisher == "")
+    if (publisher.isEmpty())
       return false;
-    if (this.isbn == "")
+    if (isbn.isEmpty())
       return false;
 
     return true;
   }
 
   public boolean contains(String text) {
-    if (this.title.contains(text))
+    if (title.contains(text))
       return true;
-    if (this.author.contains(text))
+    if (author.contains(text))
       return true;
-    if (this.publisher.contains(text))
+    if (publisher.contains(text))
       return true;
-    if (this.isbn.contains(text))
+    if (isbn.contains(text))
       return true;
 
     return false;

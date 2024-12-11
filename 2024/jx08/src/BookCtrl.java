@@ -21,8 +21,11 @@ public class BookCtrl {
   }
 
   public List<Book> search(String text) {
-    return model.readAll().stream()
-        .filter(b -> b.contains(text))
-        .collect(Collectors.toList());
+    if (text.isEmpty())
+      return list();
+    else
+      return model.readAll().stream()
+          .filter(b -> b.contains(text))
+          .collect(Collectors.toList());
   }
 }
