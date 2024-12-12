@@ -16,13 +16,13 @@ public class BookCtrl {
   public boolean register(Book book) {
     if (!book.validate())
       return false;
-    if (isDupulicated(book))
+    if (isDuplicate(book))
       return false;
     model.write(book);
     return true;
   }
 
-  private boolean isDupulicated(Book book) {
+  private boolean isDuplicate(Book book) {
     var bookList = list();
     for (Book b : bookList) {
       if (b.getTitle().equals(book.getTitle()))
