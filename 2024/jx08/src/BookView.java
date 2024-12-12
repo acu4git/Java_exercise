@@ -148,6 +148,12 @@ public class BookView extends JFrame implements ActionListener, ChangeListener {
       Book book = new Book(tfTitle.getText(), tfAuthor.getText(), tfPublisher.getText(), tfISBN.getText());
       var ok = ctrl.register(book);
       lStatus.setText(ok ? "登録しました" : "不適切な入力です");
+      if (ok) {
+        tfTitle.setText("");
+        tfAuthor.setText("");
+        tfPublisher.setText("");
+        tfISBN.setText("");
+      }
     } else if (action == btnReset) {
       tfTitle.setText("");
       tfAuthor.setText("");
@@ -173,11 +179,6 @@ public class BookView extends JFrame implements ActionListener, ChangeListener {
         Object[] row = { book.getTitle(), book.getAuthor(), book.getPublisher(), book.getISBN() };
         tableModel1.addRow(row);
       }
-    } else if (id == 1) {
-      tfTitle.setText("");
-      tfAuthor.setText("");
-      tfPublisher.setText("");
-      tfISBN.setText("");
     }
   }
 }
