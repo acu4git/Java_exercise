@@ -70,6 +70,6 @@ public class Book {
   }
 
   public String toCSV() {
-    return getTitle() + "," + getAuthor() + "," + getPublisher() + "," + getISBN();
+    return getTitle() + "__" + getAuthor() + "__" + getPublisher() + "__" + getISBN();
   }
 }

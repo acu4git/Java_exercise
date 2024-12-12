@@ -179,6 +179,8 @@ public class BookView extends JFrame implements ActionListener, ChangeListener {
         Object[] row = { book.getTitle(), book.getAuthor(), book.getPublisher(), book.getISBN() };
         tableModel1.addRow(row);
       }
+    } else if (id == 1) {
+      lStatus.setText("");
     }
   }
 }

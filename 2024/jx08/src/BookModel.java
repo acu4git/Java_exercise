@@ -20,7 +20,7 @@ public class BookModel {
         String line = buffReader.readLine();
         if (line == null)
           break;
-        String[] tokens = line.split(",");
+        String[] tokens = line.split("__");
         Book book = new Book(tokens[0], tokens[1], tokens[2], tokens[3]);
         bookList.add(book);
       }
