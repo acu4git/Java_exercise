@@ -25,12 +25,6 @@ public class BookCtrl {
   private boolean isDuplicate(Book book) {
     var bookList = list();
     for (Book b : bookList) {
-      if (b.getTitle().equals(book.getTitle()))
-        return true;
-      if (b.getAuthor().equals(book.getAuthor()))
-        return true;
-      if (b.getPublisher().equals(book.getPublisher()))
-        return true;
       if (b.getISBN().equals(book.getISBN()))
         return true;
     }
