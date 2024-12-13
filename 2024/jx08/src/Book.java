@@ -69,7 +69,7 @@ public class Book {
     this.isbn = isbn;
   }
 
-  public String toCSV() {
+  public String Format() {
     return getTitle() + "__" + getAuthor() + "__" + getPublisher() + "__" + getISBN();
   }
 }

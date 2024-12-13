@@ -32,7 +32,7 @@ public class BookModel {
 
   public void write(Book book) {
     try (BufferedWriter buffWriter = new BufferedWriter(new FileWriter(this.filepath, true))) {
-      buffWriter.write(book.toCSV());
+      buffWriter.write(book.Format());
       buffWriter.newLine();
     } catch (IOException e) {
       e.printStackTrace();

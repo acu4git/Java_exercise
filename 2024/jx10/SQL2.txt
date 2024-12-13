@@ -1,0 +1,36 @@
+(1)
+SELECT *
+FROM Goods
+WHERE gname LIKE '%pen%';
+
+(2)
+SELECT *
+FROM Goods
+WHERE gname LIKE '%o%o%o%';
+
+(3)
+SELECT *
+FROM Goods
+WHERE color IN ('red', 'yellow', 'blue');
+
+(4)
+SELECT *
+FROM Goods
+WHERE color IS NOT NULL
+  AND color <> 'white';
+
+(5)
+SELECT sno, SUM(qty) AS sum_qty
+FROM Stock
+GROUP BY sno;
+
+(6)
+INSERT INTO Goods(gno, gname, color, price) VALUES("G100", "Printer", NULL, 30000);
+
+(7)
+UPDATE Goods
+SET color = "silver", price = price / 2
+WHERE gno = "G100";
+
+(8)
+DELETE FROM Goods WHERE gno = 'G100';

@@ -1,0 +1,50 @@
+(1)
+SELECT *
+FROM Goods
+WHERE LENGTH(gname) = 6;
+
+(2)
+SELECT *
+FROM Goods
+WHERE color IS NOT NULL
+  AND color <> ''
+  AND price > 100;
+
+(3)
+SELECT sno, SUM(qty) AS sum_qty
+FROM Stock
+GROUP BY sno
+HAVING sum_qty >= 5;
+
+(4)
+SELECT gno, SUM(qty) AS sum_qty
+FROM Stock
+GROUP BY gno
+ORDER BY sum_qty DESC;
+
+(5)
+SELECT Goods.gno, (Goods.price * Stock.qty) AS sales
+FROM Goods
+INNER JOIN Stock
+  ON Goods.gno = Stock.gno
+GROUP BY Goods.gno
+HAVING sales >= 500
+ORDER BY sales DESC;
+
+(6)
+-- 親，子，孫
+SELECT p1.pname AS parent, p2.pname AS child , p3.pname AS grand_child
+FROM Person p1
+INNER JOIN Person p2
+  ON p1.child_name = p2.pname
+INNER JOIN Person p3
+  ON p2.child_name = p3.pname;
+
+(7)
+SELECT *
+FROM Goods
+WHERE color IN (
+  SELECT color
+  FROM Goods
+  WHERE price BETWEEN 100 AND 200
+);
